@@ -1,6 +1,14 @@
 # Description
 
-Builds an edge map using canny edge detection.
+Bilateral filter, can be used to perform spatial de-noise, spatial smoothing while preserving edges.
+
+Larger spatial sigma results in larger smoothing radius, while smaller range sigma preserves edges better.
+
+Now there're 2 different algorithms implemented in this function, algorithm=1 is suitable for large sigmaS and large sigmaR, and algorithm=2 is suitable for small sigmaS and small sigmaR. By default, algorithm=0 will choose the appropriate algorithm to perform the filtering.
+
+If clip ref is specified, it will perform joint/cross Bilateral filtering, which means clip ref is used to determine the range weight of Bilateral filter.
+
+By default, this function will only process Y plane for YUV format, and process all the planes for other formats. It is recommended to use Y as ref clip for chroma plane processing.
 
 This is [a port of the VapourSynth plugin Bilateral](https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Bilateral).
 
@@ -37,7 +45,7 @@ Bilateral (clip input, clip "ref", float "sigmaSY", float "sigmaSU", float "sigm
     Smaller sigmaR preserves edges better, may also leads to weaker smoothing.\
     Must be non-negative.\
     algorithmX = 1: As sigmaR decreases, the approximation of this algorithm gets worse, so more PBFICs should be used to produce satisfying result. If PBFICnum is not assigned, the number of PBFICs used will be set according to sigmaR.\
-    algorithmX = 2: It is of constant processing time regardless of sigmaR, while for large sigmaR the approximation will be bad compared to Bilateral filter prototype.\  
+    algorithmX = 2: It is of constant processing time regardless of sigmaR, while for large sigmaR the approximation will be bad compared to Bilateral filter prototype.\
     Default: sigmaRY = sigmaRU = sigmaRV = 0.02.
     
 - algorithmY, algorithmU, algorithmV\
