@@ -52,7 +52,7 @@ Bilateral (clip input, clip "ref", float "sigmaSY", float "sigmaSU", float "sigm
     0: Automatically determine the algorithm according to sigmaS, sigmaR and PBFICnum.\
     1: O(1) Bilateral filter uses quantized PBFICs.\
     2: Bilateral filter with truncated spatial window and sub-sampling. O(sigmaS^2).\
-    Default: algorithmY = algorithmU = algorithmV = 1.
+    Default: algorithmY = algorithmU = algorithmV = 0.
     
 - PBFICnumY, PBFICnumU, PBFICnumV\
     Number of PBFICs used in algorithm=1.\
