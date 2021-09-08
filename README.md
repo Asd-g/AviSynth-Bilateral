@@ -1,4 +1,4 @@
-# Description
+## Description
 
 Bilateral filter, can be used to perform spatial de-noise, spatial smoothing while preserving edges.
 
@@ -12,13 +12,19 @@ By default, this function will only process Y plane for YUV format, and process 
 
 This is [a port of the VapourSynth plugin Bilateral](https://github.com/HomeOfVapourSynthEvolution/VapourSynth-Bilateral).
 
-# Usage
+### Requirements:
+
+- AviSynth 2.60 / AviSynth+ 3.4 or later
+
+- Microsoft VisualC++ Redistributable Package 2022 (can be downloaded from [here](https://github.com/abbodi1406/vcredist/releases))
+
+### Usage:
 
 ```
 Bilateral (clip input, clip "ref", float "sigmaSY", float "sigmaSU", float "sigmaSV", float "sigmaRY", float "sigmaRU", float "sigmaRV", int "algorithmY", int "algorithmU", int "algorithmV", int "PBFICnumY", int "PBFICnumU", int "PBFICnumV", int "y", int "u", int "v")
 ```
 
-## Parameters:
+### Parameters:
 
 - input\
     A clip to process.\
@@ -66,26 +72,24 @@ Bilateral (clip input, clip "ref", float "sigmaSY", float "sigmaSU", float "sigm
     3: Process plane. Always process planes when clip is RGB.\
     Default: y = 3; u = v = 1.
     
-# Building
+### Building:
 
-## Windows
+- Windows\
+    Use solution files.
 
-Use solution files.
-
-## Linux
-
-### Requirements
-
-- Git
-- C++17 compiler
-- CMake >= 3.16
-
-```
-git clone https://github.com/Asd-g/AviSynth-Bilateral && \
-cd AviSynth-Bilateral && \
-mkdir build && \
-cd build && \
-cmake .. && \
-make -j$(nproc) && \
-sudo make install
-```
+- Linux
+    ```
+    Requirements:
+        - Git
+        - C++17 compiler
+        - CMake >= 3.16
+    ```
+    ```
+    git clone https://github.com/Asd-g/AviSynth-Bilateral && \
+    cd AviSynth-Bilateral && \
+    mkdir build && \
+    cd build && \
+    cmake .. && \
+    make -j$(nproc) && \
+    sudo make install
+    ```
